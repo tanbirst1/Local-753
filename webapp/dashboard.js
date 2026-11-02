@@ -60,7 +60,7 @@ class InstagramDashboard {
     
     async fetchBotStatus() {
         try {
-            const response = await fetch(`${BOT_API_URL}/api/bot/status`);
+            const response = await fetch(`${this.BOT_API_URL}/api/bot/status`);
             if (response.ok) {
                 const data = await response.json();
                 this.botStatus = data.status;
@@ -86,7 +86,7 @@ class InstagramDashboard {
     
     async fetchAccounts() {
         try {
-            const response = await fetch(`${BOT_API_URL}/api/accounts`);
+            const response = await fetch(`${this.BOT_API_URL}/api/accounts`);
             if (response.ok) {
                 const data = await response.json();
                 this.accounts = data.accounts || [];
@@ -109,7 +109,7 @@ class InstagramDashboard {
         
         this.showLoading(true);
         try {
-            const response = await fetch(`${BOT_API_URL}/api/bot/start`, {
+            const response = await fetch(`${this.BOT_API_URL}/api/bot/start`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -143,7 +143,7 @@ class InstagramDashboard {
         
         this.showLoading(true);
         try {
-            const response = await fetch(`${BOT_API_URL}/api/bot/stop`, {
+            const response = await fetch(`${this.BOT_API_URL}/api/bot/stop`, {
                 method: 'POST'
             });
             
