@@ -13,8 +13,9 @@ class InstagramDashboard {
         this.isRunning = false;
         this.updateInterval = null;
         
-        // Get bot API URL from environment or use default
-        this.BOT_API_URL = window.BOT_API_URL || 'https://insta-automation-bot.onrender.com';
+        // API base URL. Default to same-origin so requests go through the
+        // Netlify /api/* proxy (avoids CORS); override with window.BOT_API_URL.
+        this.BOT_API_URL = window.BOT_API_URL || '';
         
         this.init();
     }
